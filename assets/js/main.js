@@ -8,3 +8,27 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 
 */
 
+function prezzoViaggio(){
+
+    let km = document.getElementById('km').value;
+    let eta = document.getElementById('eta').value;
+    
+    const prezzoKm = 0.21;
+    
+    let prezzoBiglietto = km * prezzoKm;
+    
+    let totale = prezzoBiglietto
+
+    if (eta < 18){
+        totale = (prezzoBiglietto - ((prezzoBiglietto / 100) * 20));
+        console.log(totale)
+    } 
+    else if (eta > 65){
+        totale = (prezzoBiglietto - ((prezzoBiglietto / 100) * 40));
+    }
+
+    let costoTotale = `Il costo totale del viaggio è: ${(totale.toFixed(2))}€`
+
+    document.getElementById('risultato').innerHTML = costoTotale;
+}
+
